@@ -1,23 +1,22 @@
 // iteratorパターンは何かが集まっている時、それを順番に指し示していき、全体をスキャンしていく処理を行う。
-
-
-
-
 export const Iterator_ts = () => {
-    interface Aggregate{
-        iterator(): Iterator;
-}
+
+
     interface Iterator{
         hasNext(): boolean;
-        next(): Object;
-}
-
-     class Book{
-    constructor(public name="")   {}
-         public getName() {
-             return this.name;
+        next(): Book;
     }
-   }
+
+    class Book{
+        constructor(public name="")   {}
+        public getName() {
+            return this.name;
+        }
+    }
+
+    interface Aggregate{
+        iterator(): Iterator;
+    }
 
     class BookShelf implements Aggregate{
         last = 0;
@@ -44,8 +43,12 @@ export const Iterator_ts = () => {
         }
    }
 
+//    実際に配列をイテレートしていくクラス
     class BookShelfIterator implements Iterator{
+
+        // 本棚とインデックスを持
         constructor(private bookShelf:BookShelf,private index=0){}
+        // 保持している本棚のindex++の要素に値があるか確認
         hasNext(): boolean {
             if (this.index < this.bookShelf.getLength()) {
                 return true;
@@ -53,10 +56,11 @@ export const Iterator_ts = () => {
                 return false;
             }
         }
-        next(): Object {
+
+        next(): Book {
+            // 現在のインデックスが指し示す本棚[this.index]のインスタンスを保持
             let book = this.bookShelf.getBookAt(this.index);
             this.index++;
-            console.log(book);
             return book;
         }
     }
@@ -66,10 +70,11 @@ export const Iterator_ts = () => {
         bookShelf.appendBook(new Book('sayaka'));
         bookShelf.appendBook(new Book('kenya'));
         bookShelf.appendBook(new Book('juna'));
+        // 実際に上記のデータを持った本棚をイテレートするインスタンスをiteratorメソッドで生成している
         const it: Iterator = bookShelf.iterator();
         while (it.hasNext()) {
             const book = it.next();
-            console.log(book)
+            console.log(book.getName())
     }
     }
     main();
