@@ -3,6 +3,7 @@ export const Adapter1 = () => {
     //クラスを用いる( 継承を使ったもの)
 
     // 予めあるクラスBannerクラス
+    // adaptee使用したいクラス
     class Banner {
         constructor(public str: string) {
         }
@@ -13,6 +14,7 @@ export const Adapter1 = () => {
             console.log(`*${this.str}*`)
         }
     }
+
 
     // Bannerクラスが使いたいPrintインターフェイス
     interface Print{
@@ -66,6 +68,7 @@ export const Adapter2 = () => {
     class PrintBanner extends Print{
         banner: Banner;
 
+        // adapteeと同じプロパティを受け取る必要がある instanceを作成するため
         constructor(str: string) {
             super();
             this.banner = new Banner(str)
