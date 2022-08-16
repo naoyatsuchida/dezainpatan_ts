@@ -1,10 +1,11 @@
 export const Factory_Method = () => {
-     abstract class Product{
+    // フレームワーク製品
+    abstract class Product {
         public abstract use(): void;
     }
-
-    abstract class Factory{
-        create(owner: string): Product{
+    // フレームワーク工場
+    abstract class Factory {
+        create(owner: string): Product {
             let p: Product = this.createProduct(owner);
             this.registerProduct(p);
             return p;
@@ -16,33 +17,30 @@ export const Factory_Method = () => {
     }
 
 
-    class IDCard extends Product{
-        owner:string;
+    class IdCard extends Product {
+        public readonly owner: string;
+
         constructor(owner: string) {
             super();
+            console.log(owner + "さんのカードを作ります。");
             this.owner = owner;
         }
-        public use(): void{
-            console.log(`${this.owner}のカードを使います`);
-        }
 
-        public getOwner(): string{
-            return this.owner;
-
-        }
-
-        // class IDCardFactory extends Factory{
-        //     // ownerList: IDCard[];
-        //     createProduct(owner: string): Product{
-        //         return new IDCard(owner)
-        //     }
-
-        //     protected registerProduct(product: Product): void {
-
-        //         // this.ownerList.push(product as IDCardFactory).getOwners();
-        //     }
-        //     getOwners(): IDCard[]{
-        //         return this.ownerList;
-        //     }
+        public use(): void {
+            console.log(this.owner + "さんのカードを使います。");
         }
     }
+
+    class IdCardFactory extends Factory {
+        public readonly owners: Array<string> = [];
+
+        protected createProduct(owner: string): Product {
+            return new IdCard(owner);
+        }
+
+        protected registerProduct(product: Product): void {
+            this.owners.push((<IdCard>product).owner);
+        }
+
+    }
+}
