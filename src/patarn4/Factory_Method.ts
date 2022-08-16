@@ -7,12 +7,12 @@ export const Factory_Method = () => {
     abstract class Factory {
         create(owner: string): Product {
             let p: Product = this.createProduct(owner);
-            this.registerProduct(p);
+            // this.registerProduct(p);
             return p;
         }
 
         protected abstract createProduct(owner: string): Product;
-        protected abstract registerProduct(product: Product): void;
+        // protected abstract registerProduct(product: Product): void;
 
     }
 
@@ -38,9 +38,18 @@ export const Factory_Method = () => {
             return new IdCard(owner);
         }
 
-        protected registerProduct(product: Product): void {
-            this.owners.push((<IdCard>product).owner);
-        }
+        // protected registerProduct(product: Product): void {
+        //     this.owners.push((<IdCard>product).owner);
+        // }
 
     }
+
+    const main = () => {
+        let factory: Factory = new IdCardFactory();
+        let card1: Product = factory.create('naoya');
+        let card2: Product = factory.create('kenya');
+        card1.use();
+        card2.use();
+    }
+    main();
 }
