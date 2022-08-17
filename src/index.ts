@@ -1,3 +1,4 @@
+import { Builder } from './patarn6/Builder';
 import { Factory_Method } from './patarn4/Factory_Method';
 import { TemplateMethod } from './patarn3/TemplateMethod';
 import { Adapter1 } from './patarn2/Adapter';
@@ -9,3 +10,4 @@ Adapter1();
 TemplateMethod();
 Factory_Method();
 singleton();
+Builder();
