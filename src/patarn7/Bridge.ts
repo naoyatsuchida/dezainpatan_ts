@@ -68,12 +68,11 @@ export const Bridge = () => {
 
 
     const main= () => {
-         let d1:Display = new Display(new StringDisplayImple("hello.naoya"));
+        let d1: Display = new Display(new StringDisplayImple("hello.naoya"));
         let d2: Display = new CountDisplay(new StringDisplayImple('hellow kenyajJA+'));
         let d3: CountDisplay = new CountDisplay(new StringDisplayImple('hello.sayaka'));
         d1.display();
         d2.display();
-        d3.display();
         d3.multiDisplay(6)
     }
     main();
