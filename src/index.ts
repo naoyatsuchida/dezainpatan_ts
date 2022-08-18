@@ -1,3 +1,4 @@
+import { Bridge } from './patarn7/Bridge';
 import { Builder } from './patarn6/Builder';
 import { Factory_Method } from './patarn4/Factory_Method';
 import { TemplateMethod } from './patarn3/TemplateMethod';
@@ -11,3 +12,4 @@ TemplateMethod();
 Factory_Method();
 singleton();
 Builder();
+Bridge()
