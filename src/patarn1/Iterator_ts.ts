@@ -64,6 +64,10 @@ export const Iterator_ts = () => {
             return book;
         }
     }
+
+
+
+
     const main = () => {
         const bookShelf = new BookShelf(4);
         bookShelf.appendBook(new Book('naoya'));
