@@ -8,6 +8,7 @@ import { TemplateMethod } from './patarn3/TemplateMethod';
 import { Adapter1 } from './patarn2/Adapter';
 import { Iterator_ts } from './patarn1/Iterator_ts';
 import { singleton } from './patarn5/singleton';
+import { lesson4 } from './patarn4/lesson4';
 
 // Iterator_ts();
 // Adapter1();
@@ -19,3 +20,4 @@ import { singleton } from './patarn5/singleton';
 lesson1();
 lesson2();
 lesson3();
+lesson4();
