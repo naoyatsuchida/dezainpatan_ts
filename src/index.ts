@@ -1,3 +1,4 @@
+import { lesson2 } from './patarn2/lesson2';
 import { lesson1 } from './patarn1/lesson';
 import { Bridge } from './patarn7/Bridge';
 import { Builder } from './patarn6/Builder';
@@ -15,3 +16,4 @@ import { singleton } from './patarn5/singleton';
 // Builder();
 // Bridge()
 lesson1();
+lesson2();
