@@ -1,3 +1,4 @@
+import { lesson7 } from './patarn7/lesson7';
 import { lesson6 } from './patarn6/lesson6';
 import { lesson3 } from './patarn3/lesson3';
 import { lesson2 } from './patarn2/lesson2';
@@ -22,4 +23,5 @@ lesson1();
 lesson2();
 lesson3();
 lesson4();
-lesson6()
+lesson6();
+lesson7();
