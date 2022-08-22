@@ -1,23 +1,57 @@
-// export const Strategy = () => {
-//     class Hand{
-//         public static HAND_GUE = 0;
-//         public static HAND_CHO = 1;
-//         public static HAND_PAA = 2;
-//         static hand: Hand[] = [
-//             new Hand(Hand.HAND_GUE),
-//             new Hand(this.HAND_CHO),
-//             new Hand(this.HAND_PAA)
-//         ]
-//         static handname: string[] =[
-//             "グー","チョキ","パー"
-//         ]
-//         constructor(public handvalue: number) { }
-//         getHand(num: number) {
-//             return Hand.hand[num]
-//         }
+// 戦術を扱うクラス
+//戦術クラス
+//具体的な戦術
 
-//         isStrongerThan(h: Hand) {
-//         }
+export const Strategy = () => {
 
-//     }
-// }
+    interface StrToriatukai{
+        strMethod(str: string[]):string[];
+    }
+
+    class BicEcho implements StrToriatukai{
+        strMethod(str: string[]){
+            let arrys: string[]=[];
+            str.map((data:string) => {
+                arrys.push(data.toLocaleUpperCase());
+            })
+            return arrys;
+        }
+    }
+
+    class smallEcho implements StrToriatukai{
+        strMethod(str: string[]){
+            let arrys: string[]=[];
+            str.map((data:string,index) => {
+
+                arrys.push(data.toLocaleLowerCase());
+   })
+return arrys;
+}
+}
+
+class Context{
+    constructor(
+    private str: StrToriatukai
+    ) {
+    }
+    setStr(strategy: StrToriatukai) {
+        this.str = strategy;
+    }
+
+    use(str:string[]) {
+        return this.str.strMethod(str);
+    }
+}
+
+    const main = () => {
+        let data = ["naoya", "kenya", "sayaka"];
+
+        let con = new Context(new BicEcho())
+
+        console.log(con.use(data));
+
+        con.setStr(new smallEcho());
+        console.log(con.use(data));
+}
+    main();
+}

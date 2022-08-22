@@ -1,3 +1,4 @@
+import { Strategy } from './patarn8/Strategy';
 import { lesson7 } from './patarn7/lesson7';
 import { lesson6 } from './patarn6/lesson6';
 import { lesson3 } from './patarn3/lesson3';
@@ -19,3 +20,4 @@ import { lesson4 } from './patarn4/lesson4';
 // singleton();
 // Builder();
 // Bridge()
+Strategy();
