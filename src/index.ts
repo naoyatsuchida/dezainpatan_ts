@@ -19,9 +19,3 @@ import { lesson4 } from './patarn4/lesson4';
 // singleton();
 // Builder();
 // Bridge()
-lesson1();
-lesson2();
-lesson3();
-lesson4();
-lesson6();
-lesson7();
